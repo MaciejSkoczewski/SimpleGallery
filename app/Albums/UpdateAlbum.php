@@ -3,17 +3,16 @@
 namespace app\Albums;
 
 use App\Album;
-use App\Http\Requests\StoreAlbumRequest;
 
 /**
  * 
  */
 class UpdateAlbum
 {
-    public function update(Album $album, StoreAlbumRequest $request)
+    public function update(Album $album, array $data)
     {
         $album->slug = null;
 
-        $album->fill($request->all())->save();
+        $album->fill($data)->save();
     }
 }

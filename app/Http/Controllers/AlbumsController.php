@@ -106,9 +106,9 @@ class AlbumsController extends Controller
             abort(404);
         }
 
-        $updateAlbum->update($album, $request);
+        $updateAlbum->update($album, $request->all());
 
-        return redirect()->route('albums.show', ['id' => $album->id.'-'.$album->slug, 'slug' => $album->slug])
+        return redirect()->route('albums.show', ['id' => $album->id, 'slug' => $album->slug])
                         ->with('message', 'Album został pomyślnie edytowany')
                         ->with('alert-', 'info');
     }
